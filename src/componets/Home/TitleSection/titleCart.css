@@ -1,0 +1,21 @@
+.girls-background {
+    background-image: url('https://i.ibb.co/1J3YFNz/2204a56c8640f782a8937e32edd3cb1e.jpg');
+}
+
+.boys-background {
+
+    background-image: url('https://i.ibb.co/MpcSKML/a73ebbb6701ca2eaeac228a79fd4540e.jpg');
+}
+
+.avarage-background {
+    background-image: url('https://i.ibb.co/71fdBbF/jatin-malik3e.jpg');
+}
+
+.card {
+    transition: 4s;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
