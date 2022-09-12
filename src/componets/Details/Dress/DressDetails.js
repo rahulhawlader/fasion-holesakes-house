@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 // import { useState } from 'react';
 // import { useEffect } from 'react';
 
@@ -9,19 +10,19 @@ import React from 'react';
 const DressDetails = ({ girlsDressDetails }) => {
 
     const { _id, name, color, price, img } = girlsDressDetails
-    // const { dressesId } = useParams()
 
-    // const [girlsDreses, setGirlsDreses] = useState({});
+    const [count, setCount] = useState(0)
 
+    const countPluseHandler = () => {
 
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/girlsdress/${dressesId}`;
+        setCount((prevCount) => prevCount + 1)
 
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setGirlsDreses(data))
-
-    // }, [dressesId])
+    }
+    const countMinusHandler = () => {
+        if (count > 0) {
+            setCount((prevCount) => prevCount - 1)
+        }
+    }
 
 
 
@@ -64,9 +65,9 @@ const DressDetails = ({ girlsDressDetails }) => {
                         </div>
                         <div>
                             <div className='mt-4 flex'>
-                                <button className='py-3 px-2 font-bold border border-gray-300 hover:text-white hover:bg-red-400'>+</button>
-                                <p className='block border py-3 px-4'>0</p>
-                                <button className='border py-3 px-2 font-bold border-gray-300 hover:bg-red-400 hover:text-white'>-</button>
+                                <button onClick={() => countPluseHandler()} className='py-3 px-2 font-bold border border-gray-300 hover:text-white hover:bg-red-400'>+</button>
+                                <p className='block border py-3 px-4'>{count}</p>
+                                <button onClick={() => countMinusHandler()} className='border py-3 px-2 font-bold border-gray-300 hover:bg-red-400 hover:text-white'>-</button>
 
 
                             </div>

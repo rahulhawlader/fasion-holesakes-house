@@ -6,6 +6,7 @@ import Footer from './componets/Shared/Header/Footer';
 import ContackSection from './componets/Contack/ContackSection';
 import Shop from './componets/Shop/Shop';
 import DressDetails from './componets/Details/Dress/DressDetails';
+import Cart from './componets/Cart/Cart';
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/dresses/:dressesId' element={<DressDetails />}></Route>
           <Route path='/contack' element={<ContackSection />}></Route>
           <Route path='/shop' element={<Shop />}></Route>
+          <Route path='/cart' element={<Cart />}></Route>
 
 
         </Routes>
