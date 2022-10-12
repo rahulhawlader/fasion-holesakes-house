@@ -5,27 +5,22 @@ import { useState } from 'react';
 
 // import { useParams } from 'react-router-dom';
 
-
+// asassasasas sasasas sasass saass sas 
 
 const DressDetails = ({ girlsDressDetails }) => {
 
-    const { _id, name, color, price, img } = girlsDressDetails
+    const { name, price, img } = girlsDressDetails
 
-    const [count, setCount] = useState(0)
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-    const countPluseHandler = () => {
 
-        setCount((prevCount) => prevCount + 1)
 
-    }
-    const countMinusHandler = () => {
-        if (count > 0) {
-            setCount((prevCount) => prevCount - 1)
-        }
+
     }
 
 
-
+    // sasa sasa s sa sass s a==>
 
 
     return (
@@ -39,9 +34,9 @@ const DressDetails = ({ girlsDressDetails }) => {
                     <div className=''>
                         <img src={img} alt=""></img>
                     </div>
-                    <div className='pl-3 '>
+                    <form onSubmit={handleSubmit} className='pl-3 '>
 
-                        <h3 class="font-bold my-2  text-2xl">{name}</h3>
+                        <h3 name='dressName' class="font-bold my-2  text-2xl">{name}</h3>
                         <div class="rating flex my-2 justify-center .">
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" checked />
@@ -53,30 +48,23 @@ const DressDetails = ({ girlsDressDetails }) => {
                         <p class="py-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo, eaque.</p>
 
                         <div>
+
                             <div>
-                                <p>Size</p>
-                            </div>
-                            <div>
-                                <button className='text-white bg-red-400 mr-1 p-2'>Small</button>
-                                <button className='text-white bg-red-400 mr-1 p-2'>Medum</button>
-                                <button className='text-white bg-red-400 mr-1 p-2'>Large</button>
-                                <button className='text-white bg-red-400 p-2 mt-2'>Extra Large</button>
+                                <input type="text" placeholder="Small or Xl or Xxl " class="input w-full max-w-xs bg-white" />
                             </div>
                         </div>
                         <div>
                             <div className='mt-4 flex'>
-                                <button onClick={() => countPluseHandler()} className='py-3 px-2 font-bold border border-gray-300 hover:text-white hover:bg-red-400'>+</button>
-                                <p className='block border py-3 px-4'>{count}</p>
-                                <button onClick={() => countMinusHandler()} className='border py-3 px-2 font-bold border-gray-300 hover:bg-red-400 hover:text-white'>-</button>
 
+                                <input type="text" placeholder="Quantity" class="input w-full max-w-xs bg-white" />
 
                             </div>
-                            <button className='border mt-2 bg-red-400 p-2  border-gray-300 text-white'>ADD TO CARD</button>
-                            <button className='border  bg-red-400 p-2  border-gray-300 text-white'>BUY NOW</button>
+                            <button className='btn btn-secondary  border mt-2 w-full bg-red-400 p-2  border-gray-300 text-white'>ADD TO CARD</button>
+
 
                         </div>
 
-                    </div>
+                    </form>
 
 
                 </div>

@@ -7,6 +7,8 @@ import ContackSection from './componets/Contack/ContackSection';
 import Shop from './componets/Shop/Shop';
 import DressDetails from './componets/Details/Dress/DressDetails';
 import Cart from './componets/Cart/Cart';
+import Login from './componets/Login/Login';
+import SignUp from './componets/Login/SignUp';
 
 
 
@@ -24,6 +26,8 @@ function App() {
           <Route path='/contack' element={<ContackSection />}></Route>
           <Route path='/shop' element={<Shop />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/signup' element={<SignUp />}></Route>
 
 
         </Routes>
