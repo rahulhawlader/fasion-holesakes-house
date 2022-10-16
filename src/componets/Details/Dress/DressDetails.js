@@ -1,24 +1,83 @@
-import React from 'react';
-import { useState } from 'react';
-// import { useState } from 'react';
-// import { useEffect } from 'react';
 
-// import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../../firebase.init'
 
-// asassasasas sasasas sasass saass sas 
-
-const DressDetails = ({ girlsDressDetails }) => {
-
+const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
+    const [user] = useAuthState(auth);
+    const [quantity, setQuantity] = useState(1);
+    const [btnDisable, setBtnDisable] = useState(false);
     const { name, price, img } = girlsDressDetails
 
+
+    const handleQuantity = e => {
+        setQuantity(e.target.value)
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        const quantity = e.target.quantity.value;
+        const totalAmount = parseFloat(quantity) * parseFloat(price);
+
+        if (quantity <= 0) {
+            setBtnDisable(true)
+            toast.error('Please minimum one quantity order')
+        }
+
+
+
+        else {
+            // setBtnDisable(false)
+            const orderForm = {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                phone: e.target.phone.value,
+                dressName: name,
+                img: img,
+                price: price,
+                pcs: e.target.quantity.value,
+                size: e.target.size.value,
+                totalAmount: totalAmount
+            }
+
+            fetch('http://localhost:5000/order', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(orderForm)
+            })
+                .then(res => res.json())
+                .then(data => {
+
+
+                    if (data) {
+                        toast('Order is success')
+                    }
+                    else {
+                        toast.error('order is unsuccessFull')
+                    }
+
+
+
+                    console.log('order Done');
+                    setGirlsDressDetails(null)
+                })
+
+        }
 
 
 
     }
 
+
+
+    useEffect(() => {
+        if (quantity >= 1) {
+            setBtnDisable(false)
+        }
+    }, [quantity])
 
     // sasa sasa s sa sass s a==>
 
@@ -44,22 +103,59 @@ const DressDetails = ({ girlsDressDetails }) => {
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
                         </div>
-                        <div className='text-red-400 my-2'>${price}</div>
-                        <p class="py-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo, eaque.</p>
+                        <div className='my-2 '><h2 className='text-xl'>Price:- <span className='text-red-400 font-bold'> ${price}</span> </h2></div>
+
 
                         <div>
 
-                            <div>
-                                <input type="text" placeholder="Small or Xl or Xxl " class="input w-full max-w-xs bg-white" />
-                            </div>
-                        </div>
-                        <div>
-                            <div className='mt-4 flex'>
 
-                                <input type="text" placeholder="Quantity" class="input w-full max-w-xs bg-white" />
+                            <input
 
-                            </div>
-                            <button className='btn btn-secondary  border mt-2 w-full bg-red-400 p-2  border-gray-300 text-white'>ADD TO CARD</button>
+                                name="name"
+                                type="text"
+                                value={user.displayName}
+                                disabled
+                                class="input w-full max-w-xs bg-white text-white font-bold"
+                            />
+
+                            <input
+
+                                name="email"
+                                type="email"
+                                value={user.email}
+                                disabled
+                                class="input w-full max-w-xs mt-2 bg-white text-white font-bold"
+                            />
+
+                            <input
+
+                                name="phone"
+                                type="number"
+                                placeholder="Please Your Phone Number"
+                                class="input w-full max-w-xs bg-white"
+                            />
+                            <input
+
+                                name="size"
+                                type="text"
+                                placeholder="Small or Xl or Xxl "
+                                class="input w-full max-w-xs bg-white"
+                            />
+
+
+
+
+                            <input
+
+                                onChange={handleQuantity}
+                                name='quantity'
+                                type="text"
+                                placeholder="Quantity"
+                                class="input w-full max-w-xs bg-white"
+                            />
+
+
+                            <button disabled={btnDisable} className='btn btn-secondary  border mt-2 w-full bg-red-400 p-2  border-gray-300 text-white'>ADD TO CARD</button>
 
 
                         </div>

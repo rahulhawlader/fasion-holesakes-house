@@ -12,7 +12,7 @@ const Header = () => {
     const logout = () => {
         signOut(auth);
         // localStorage.removeItem('accessToken')
-       };
+    };
 
 
     const menuItems = <>
@@ -24,7 +24,7 @@ const Header = () => {
         <li><Link to="/contack">Contack</Link></li>
         {/* <li><Link to="/login"> {user.displayName}</Link></li> */}
 
-        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out {user.displayName} </button> : <Link to="/login">My Account</Link>}</li>
+        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out<span className='text-red-400'> {user.displayName}</span> </button> : <Link to="/login">My Account</Link>}</li>
 
 
     </>

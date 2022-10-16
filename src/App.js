@@ -9,6 +9,9 @@ import DressDetails from './componets/Details/Dress/DressDetails';
 import Cart from './componets/Cart/Cart';
 import Login from './componets/Login/Login';
 import SignUp from './componets/Login/SignUp';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import RequireAuth from './componets/Login/RequireAuth';
 
 
 
@@ -19,10 +22,18 @@ function App() {
 
         <Header></Header>
         <Routes >
-          <Route path='/' element={<Home></Home>}></Route>
-          <Route path='/home' element={<Home></Home>}></Route>
+          <Route path='/' element={
+          <RequireAuth>
+            <Home />
+          </RequireAuth>}>
 
-          <Route path='/dresses/:dressesId' element={<DressDetails />}></Route>
+          </Route>
+          <Route path='/home' element={
+            <RequireAuth>
+              <Home />
+            </RequireAuth>
+
+          }></Route><Route path='/dresses/:dressesId' element={<DressDetails /> }></Route>
           <Route path='/contack' element={<ContackSection />}></Route>
           <Route path='/shop' element={<Shop />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
@@ -34,6 +45,7 @@ function App() {
 
       </div>
       <Footer></Footer>
+      <ToastContainer />
 
     </div>
   );

@@ -88,7 +88,11 @@ const FecturesProducts = () => {
 
 
                 </div>
-                {girlsDressDetails && <DressDetails girlsDressDetails={girlsDressDetails} ></DressDetails>}
+                {girlsDressDetails && <DressDetails girlsDressDetails={girlsDressDetails} 
+                
+                setGirlsDressDetails={setGirlsDressDetails}
+                
+                ></DressDetails>}
             </div>
 
             {/* <div className='buttons   text-2xl text-center'>
