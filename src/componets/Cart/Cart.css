@@ -1,0 +1,31 @@
+/* orders.map((a, index) => <tr
+                            key={a._id}
+                            >
+                                <th>{index + 1}</th>
+                                <td><div class="avatar">
+                                    <div class="w-32 rounded">
+                                        <img src={a.img} alt="" />
+                                    </div>
+                                </div></td>
+                                <td>{a.name}</td>
+                                <td>{a.dressName}</td>
+                                <td>{a.size}</td>
+                                <td>{a.pcs}</td>
+                                <td>{a.price}</td>
+                                <td>{a.totalAmount}</td>
+                                
+                                
+                                
+                                <td><button 
+                                onClick={() => handleDelete(orders._id)} 
+                                className='btn btn-xs btn-error'
+                                >Remove</button>
+                                </td>
+                                <td>
+                                    {(a.price && !a.paid) && <Link to={`/pyment/${a._id}`}><button className='btn btn-xs btn-primary'>Pay</button></Link>}
+                                    {(a.price && a.paid) && <span className='text-success'>Paid</span>}
+
+                                </td>
+
+
+                            </tr>) */

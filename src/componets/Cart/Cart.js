@@ -1,14 +1,23 @@
 
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+// import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import CartRow from './CartRow';
 
 
 const Cart = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth)
-    // const {name,dressName, img, price, pcs, size, totalAmount}=orders;
+
+
+    // if(user){
+
+    //     const { data: order, isLoading, refetch } = useQuery('order', () => fetch(`http://localhost:5000/order?email=${user.email}`, {
+    //     method: "GET"
+    //    }).then(res => res.json()))
+    // }
 
 
     useEffect(() => {
@@ -21,10 +30,28 @@ const Cart = () => {
                 .then(res => res.json())
                 .then(data => {
                     setOrders(data)
+
+
+
+
+
+
+
+
+
+
                 })
+
+
+
+
         }
 
     }, [user])
+
+
+
+
 
 
     return (
@@ -36,40 +63,32 @@ const Cart = () => {
                     <thead className='text-black text-green-400'>
                         <tr>
                             <th></th>
-                            <th>Pictures</th>
-                            <th>Name</th>
-                            <th>Order</th>
+                            <th>Dress Pictures</th>
+                            <th>Customer Name</th>
+                            <th>Dress Name</th>
                             <th>Size</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Total</th>
+                            <th>Remove</th>
                             <th>Payment</th>
+
                         </tr>
                     </thead>
                     <tbody className='text-white'>
 
 
                         {
-                            orders.map((a, index) => <tr>
-                                <th>{index + 1}</th>
-                                <td><div class="avatar">
-                                    <div class="w-32 rounded">
-                                        <img src={a.img} alt="" />
-                                    </div>
-                                </div></td>
-                                <td>{a.name}</td>
-                                <td>{a.dressName}</td>
-                                <td>{a.size}</td>
-                                <td>{a.pcs}</td>
-                                <td>{a.price}</td>
-                                <td>{a.totalAmount}</td>
-                                <td>
-                                    {(a.price && !a.paid) && <Link to={`/pyment/${a._id}`}><button className='btn btn-xs btn-primary'>Pay</button></Link>}
-                                    {(a.price && a.paid) && <span className='text-success'>Paid</span>}
 
-                                </td>
+                            orders.map((order, index) => <CartRow
+                                key={order._id}
+                                order={order}
+                                index={index}
 
-                            </tr>)
+
+                            ></CartRow>)
+
+
                         }
 
 
