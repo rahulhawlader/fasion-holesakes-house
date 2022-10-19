@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './componets/Login/RequireAuth';
 import Payment from './componets/Cart/Payment';
+import Review from './componets/Review/Review';
 
 
 
@@ -24,9 +25,9 @@ function App() {
         <Header></Header>
         <Routes >
           <Route path='/' element={
-          <RequireAuth>
-            <Home />
-          </RequireAuth>}>
+            <RequireAuth>
+              <Home />
+            </RequireAuth>}>
 
           </Route>
           <Route path='/home' element={
@@ -34,10 +35,16 @@ function App() {
               <Home />
             </RequireAuth>
 
-          }></Route><Route path='/dresses/:dressesId' element={<DressDetails /> }></Route>
+          }></Route><Route path='/dresses/:dressesId' element={<DressDetails />}></Route>
           <Route path='/contack' element={<ContackSection />}></Route>
-          <Route path='/shop' element={<Shop />}></Route>
+          <Route path='/shop' element={
+            <RequireAuth>
+              <Shop />
+            </RequireAuth>
+
+          }></Route>
           <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/review' element={<Review />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/payment/:id' element={<Payment />}></Route>

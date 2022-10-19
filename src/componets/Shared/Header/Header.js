@@ -67,8 +67,8 @@ const Header = () => {
                     <ul class="menu menu-horizontal p-0">
 
                         <li> <i class="fa-solid fa-magnifying-glass"></i></li>
-                        <li className='bg-pink'> <i class="fa-solid fa-heart text-pink-600"></i>
-                        </li>
+                        <li className='bg-pink'> <Link to="/review"><i class="fa-solid fa-heart text-pink-600"></i>
+                        </Link> </li>
                         <li> <Link to="/cart" ><i class="fa-solid fa-cart-arrow-down"></i></Link></li>
 
                     </ul>
