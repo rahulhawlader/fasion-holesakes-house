@@ -8,7 +8,7 @@ import auth from '../../../firebase.init';
 const Header = () => {
 
     const [user] = useAuthState(auth);
-    
+
 
 
     const logout = () => {
@@ -35,13 +35,13 @@ const Header = () => {
 
     return (
         <div className='bg-white sticky top-0 z-50'>
-            <div class="navbar  w-11/12 mx-auto   text-black  ">
-                <div class="navbar-start ">
-                    <div class="dropdown">
-                        <label tabindex="0" class="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            <div className="navbar  w-11/12 mx-auto   text-black  ">
+                <div className="navbar-start ">
+                    <div className="dropdown">
+                        <label tabindex="0" className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold text-black">
+                        <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold text-black">
                             {
                                 menuItems
                             }
@@ -50,8 +50,8 @@ const Header = () => {
                     </div>
                     <a className="btn btn-ghost normal-case text-2xl font-bold"><span className='text-fuchsia-600'>F</span>asion</a>
                 </div>
-                <div class="navbar-center font-bold  hidden lg:flex">
-                    <ul class="menu menu-horizontal p-0">
+                <div className="navbar-center font-bold  hidden lg:flex">
+                    <ul className="menu menu-horizontal p-0">
                         {/* <li><Link to="/home">Home</Link></li>
                         <li><Link to="/shop">Shop</Link></li>
                         <li><Link to="/about">About</Link></li>
@@ -67,19 +67,19 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <div class="navbar-end ">
-                    <ul class="menu menu-horizontal p-0">
+                <div className="navbar-end ">
+                    <ul className="menu menu-horizontal p-0">
 
-                        <li> <i class="fa-solid fa-magnifying-glass"></i></li>
-                        <li className='bg-pink'> <i class="fa-solid fa-heart text-pink-600"></i>
+                        <li> <i className="fa-solid fa-magnifying-glass"></i></li>
+                        <li className='bg-pink'> <i className="fa-solid fa-heart text-pink-600"></i>
                         </li>
-                        <li> <Link to="/cart" ><i class="fa-solid fa-cart-arrow-down"></i></Link></li>
+                        <li> <Link to="/cart" ><i className="fa-solid fa-cart-arrow-down"></i></Link></li>
 
-                        <label tabindex="1" for="dashboard-sidebar" class="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <label tabindex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
 
-                        {/* <label  class="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
+                        {/* <label  className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
                     </ul>
                 </div>
             </div>

@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L41anBQZYjn6cSxMdp5BdALVevV4wZo9Btuf
 const Payment = () => {
  const { id } = useParams()
 
- const url = `http://localhost:5000/order/${id}`;
+ const url = `https://radiant-tor-70020.herokuapp.com/order/${id}`;
 
  const { data: order, isLoading } = useQuery(['orders', id], () => fetch(url, {
   method: "GET"
@@ -25,24 +25,24 @@ const Payment = () => {
   <div className='flex h-screen justify-center items-center  '>
 
    <div>
-    <div class="card w-96 max-w-md  shadow-2xl px-1 my-12 bg-black">
-     <div class="card-body">
+    <div className="card w-96 max-w-md  shadow-2xl px-1 my-12 bg-black">
+     <div className="card-body">
       <p className='text-success text-bold'>Hello, {order.name}</p>
-      <div class="avatar">
-       <div class="w-20 rounded">
+      <div className="avatar">
+       <div className="w-20 rounded">
         <img src={order.img} alt="" />
        </div>
       </div>
-      <h2 class="card-title text-pink-400 ">Dress: {order.dressName}</h2>
-      <p class=" text-pink-400 ">Price: <span className='text-red-600'>${order.price}</span></p>
-      <p class=" text-pink-400 ">Quantity: {order.pcs}</p>
+      <h2 className="card-title text-pink-400 ">Dress: {order.dressName}</h2>
+      <p className=" text-pink-400 ">Price: <span className='text-red-600'>${order.price}</span></p>
+      <p className=" text-pink-400 ">Quantity: {order.pcs}</p>
 
       <p className='text-pink-400 '>Please Pay: <span className='text-red-600'>${order.totalAmount}</span></p>
 
      </div>
     </div>
-    <div class="card flex-shrink-0 w-96  px-1   max-w-md shadow-2xl bg-black">
-     <div class="card-body sm:w-80">
+    <div className="card flex-shrink-0 w-96  px-1   max-w-md shadow-2xl bg-black">
+     <div className="card-body sm:w-80">
 
       <Elements stripe={stripePromise}>
        <CheckoutForm order={order} />

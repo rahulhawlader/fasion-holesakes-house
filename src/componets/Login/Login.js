@@ -14,10 +14,10 @@ const Login = () => {
  const { register, formState: { errors }, handleSubmit } = useForm();
 
 
- 
 
- 
- 
+
+
+
 
  const [
   signInWithEmailAndPassword,
@@ -28,23 +28,23 @@ const Login = () => {
 
  let signInError;
 
- 
- const [token]=useToken(user|| gUser)
-const navigate = useNavigate();
-// const location = useLocation();
-// let from = location.state?.from?.pathname || "/"
 
- if(loading || gLoading){
-  return <Loading/>
+ const [token] = useToken(user || gUser)
+ const navigate = useNavigate();
+ // const location = useLocation();
+ // let from = location.state?.from?.pathname || "/"
+
+ if (loading || gLoading) {
+  return <Loading />
  }
- 
+
  if (error || gError) {
   signInError = <p className='text-red-500'> {error?.message || gError?.message}</p>
  }
 
 
 
- 
+
  if (token) {
 
   navigate('/')
@@ -60,13 +60,13 @@ const navigate = useNavigate();
  };
 
 
- 
+
 
  return (
   <div className='bg-black flex h-screen justify-center items-center '>
-   <div class="card w-96 bg-white shadow-xl">
-    <div class="card-body">
-     <h2 class="text-center text-2xl font-bold ">Login</h2>
+   <div className="card w-96 bg-white shadow-xl">
+    <div className="card-body">
+     <h2 className="text-center text-2xl font-bold ">Login</h2>
 
 
      <form onSubmit={handleSubmit(onSubmit)}>
@@ -135,11 +135,11 @@ const navigate = useNavigate();
      <p><small>New To fasion house? <Link className='text-primary' to="/signup">New Create Account</Link></small></p>
 
 
-     <div class="divider ">OR</div>
+     <div className="divider ">OR</div>
 
      <button
       onClick={() => signInWithGoogle()}
-      class="btn btn-outline btn-secondary"
+      className="btn btn-outline btn-secondary"
      >continue with Google</button>
     </div>
    </div>

@@ -8,7 +8,7 @@ const AllEmployee = () => {
  const [deletingEmployee, setDeletingEmployee] = useState(null)
 
 
- const { data: employee, isLoading, refetch } = useQuery('employee', () => fetch('http://localhost:5000/employee', {
+ const { data: employee, isLoading, refetch } = useQuery('employee', () => fetch('https://radiant-tor-70020.herokuapp.com/employee', {
   headers: {
    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
   }
@@ -26,8 +26,8 @@ const AllEmployee = () => {
    <h1 className='text-xl  text-black font-bold'>Our All  Employee: {employee.length} </h1>
 
 
-   <div class="overflow-x-auto">
-    <table class="table w-full">
+   <div className="overflow-x-auto">
+    <table className="table w-full">
 
      <thead>
       <tr>
@@ -46,7 +46,7 @@ const AllEmployee = () => {
         employee={employee}
         index={index}
         refetch={refetch}
-        
+
         setDeletingEmployee={setDeletingEmployee}
 
        ></EmployeeRow>)

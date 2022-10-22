@@ -15,7 +15,7 @@ const Cart = () => {
 
     // if(user){
 
-    //     const { data: order, isLoading, refetch } = useQuery('order', () => fetch(`http://localhost:5000/order?email=${user.email}`, {
+    //     const { data: order, isLoading, refetch } = useQuery('order', () => fetch(`https://radiant-tor-70020.herokuapp.com/order?email=${user.email}`, {
     //     method: "GET"
     //    }).then(res => res.json()))
     // }
@@ -23,7 +23,7 @@ const Cart = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/myorder?email=${user.email}`, {
+            fetch(`https://radiant-tor-70020.herokuapp.com/myorder?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -76,8 +76,8 @@ const Cart = () => {
     return (
         <div className='bg-white'>
             <h2 className='text-2xl text-pink-400 text-center font-bold'>My All orders: {orders.length}</h2>
-            <div class="overflow-x-auto  ">
-                <table class="table w-full">
+            <div className="overflow-x-auto  ">
+                <table className="table w-full">
 
                     <thead className='text-black text-green-400'>
                         <tr>

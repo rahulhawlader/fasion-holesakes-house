@@ -5,7 +5,7 @@ const useGirlsDresses = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/girlsdress')
+        fetch('https://radiant-tor-70020.herokuapp.com/girlsdress')
             .then(res => res.json())
             .then(data => setGirlsDreses(data))
 

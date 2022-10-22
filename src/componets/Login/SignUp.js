@@ -19,11 +19,11 @@ const SignUp = () => {
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth)
-  
+
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  const [token]=useToken(user || gUser)
+  const [token] = useToken(user || gUser)
 
   let signInError;
 
@@ -52,7 +52,7 @@ const SignUp = () => {
 
     await updateProfile({ displayName: data.name });
     console.log('updated done');
-   
+
 
 
   };
@@ -62,8 +62,8 @@ const SignUp = () => {
 
   return (
     <div className='bg-white flex h-screen justify-center items-center '>
-      <div class="card w-96 bg-black  shadow-xl">
-        <div class="card-body">
+      <div className="card w-96 bg-black  shadow-xl">
+        <div className="card-body">
           <h2 className="text-2xl  text-center text-white font-bold">Create an Account</h2>
 
 
@@ -71,9 +71,9 @@ const SignUp = () => {
 
             <div className="form-control w-full max-w-xs">
               <label className="label">
-        <span className="label-text">Your Name</span>
+                <span className="label-text">Your Name</span>
 
-       </label>
+              </label>
               <input type="text"
 
                 placeholder="your Name "
@@ -163,11 +163,11 @@ const SignUp = () => {
           <p className='text-white'><small>Already Have an account? <Link className='text-primary' to="/login">Please Login</Link></small></p>
 
 
-          <div class="divider ">OR</div>
+          <div className="divider ">OR</div>
 
           <button
             onClick={() => signInWithGoogle()}
-            class="btn btn-outline btn-secondary"
+            className="btn btn-outline btn-secondary"
           >continue with Google</button>
         </div>
       </div>

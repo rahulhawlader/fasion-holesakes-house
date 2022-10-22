@@ -41,7 +41,7 @@ const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
                 totalAmount: totalAmount
             }
 
-            fetch('http://localhost:5000/order', {
+            fetch('https://radiant-tor-70020.herokuapp.com/order', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -86,22 +86,22 @@ const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
         <div>
 
 
-            <input type="checkbox" id="girls-dress" class="modal-toggle " />
-            <div class="modal modal-bottom sm:modal-middle  ">
-                <div class="modal-box w-screen grid lg:grid-cols-2 sm:grid-cols-1  md:grid-cols-2 lg:w-auto lg:h-auto   bg-white  ">
-                    <label for="girls-dress" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="girls-dress" className="modal-toggle " />
+            <div className="modal modal-bottom sm:modal-middle  ">
+                <div className="modal-box w-screen grid lg:grid-cols-2 sm:grid-cols-1  md:grid-cols-2 lg:w-auto lg:h-auto   bg-white  ">
+                    <label for="girls-dress" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div className=''>
                         <img src={img} alt=""></img>
                     </div>
                     <form onSubmit={handleSubmit} className='pl-3 '>
 
-                        <h3 name='dressName' class="font-bold my-2  text-2xl">{name}</h3>
-                        <div class="rating flex my-2 justify-center .">
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" checked />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-yellow-400" />
+                        <h3 name='dressName' className="font-bold my-2  text-2xl">{name}</h3>
+                        <div className="rating flex my-2 justify-center .">
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" checked />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
                         </div>
                         <div className='my-2 '><h2 className='text-xl'>Price:- <span className='text-red-400 font-bold'> ${price}</span> </h2></div>
 
@@ -115,7 +115,7 @@ const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
                                 type="text"
                                 value={user.displayName}
                                 disabled
-                                class="input w-full max-w-xs bg-white text-white font-bold"
+                                className="input w-full max-w-xs bg-white text-white font-bold"
                             />
 
                             <input
@@ -124,7 +124,7 @@ const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
                                 type="email"
                                 value={user.email}
                                 disabled
-                                class="input w-full max-w-xs mt-2 bg-white text-white font-bold"
+                                className="input w-full max-w-xs mt-2 bg-white text-white font-bold"
                             />
 
                             <input
@@ -132,14 +132,14 @@ const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
                                 name="phone"
                                 type="number"
                                 placeholder="Please Your Phone Number"
-                                class="input w-full max-w-xs bg-white"
+                                className="input w-full max-w-xs bg-white"
                             />
                             <input
 
                                 name="size"
                                 type="text"
                                 placeholder="Small or Xl or Xxl "
-                                class="input w-full max-w-xs bg-white"
+                                className="input w-full max-w-xs bg-white"
                             />
 
 
@@ -151,7 +151,7 @@ const DressDetails = ({ girlsDressDetails, setGirlsDressDetails }) => {
                                 name='quantity'
                                 type="text"
                                 placeholder="Quantity"
-                                class="input w-full max-w-xs bg-white"
+                                className="input w-full max-w-xs bg-white"
                             />
 
 

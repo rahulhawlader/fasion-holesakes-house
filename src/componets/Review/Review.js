@@ -19,7 +19,7 @@ const Review = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review`, {
+    fetch(`https://radiant-tor-70020.herokuapp.com/review`, {
       method: 'GET'
     })
 
@@ -66,7 +66,7 @@ const Review = () => {
           }
 
 
-          fetch(`http://localhost:5000/review`, {
+          fetch(`https://radiant-tor-70020.herokuapp.com/review`, {
             method: 'POST',
             headers: {
 
@@ -97,7 +97,7 @@ const Review = () => {
 
 
   }
-  // const { data: review, isLoading } = useQuery('review', () => fetch(`http://localhost:5000/review`, {
+  // const { data: review, isLoading } = useQuery('review', () => fetch(`https://radiant-tor-70020.herokuapp.com/review`, {
   //     method: 'GET'
   //   }).then(res => res.json()))
 
@@ -246,7 +246,7 @@ const Review = () => {
               name='name'
               value={user.displayName}
               disabled
-              class="input w-full text-white font-bold max-w-xs mt-2"
+              className="input w-full text-white font-bold max-w-xs mt-2"
 
             />
 
@@ -257,14 +257,14 @@ const Review = () => {
               type="text"
               name='company'
               placeholder="Company's Name Designation "
-              class="input w-full bg-white  max-w-xs mt-2"
+              className="input w-full bg-white  max-w-xs mt-2"
             />
 
 
             <textarea
               ref={discriptionRef}
               name='discription'
-              class="textarea bg-white w-full max-w-xs my-2"
+              className="textarea bg-white w-full max-w-xs my-2"
               placeholder="Discription"
 
             ></textarea>
