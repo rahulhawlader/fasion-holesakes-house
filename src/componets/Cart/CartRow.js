@@ -48,10 +48,10 @@ const CartRow = ({order, index}) => {
                                 
                                 
                                 
-                                <td><button 
+                                <td>{!order.paid &&  <button 
                                 onClick={() => handleDelete(order._id)} 
                                 className='btn btn-xs btn-error'
-                                >Remove</button>
+                                >Remove</button>}
                                 </td>
                                 <td>
                                     {(price && !order.paid ) && <Link to={`/payment/${_id}`}><button className='btn btn-xs btn-primary'>Pay</button></Link>}

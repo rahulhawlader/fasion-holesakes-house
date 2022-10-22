@@ -1,4 +1,5 @@
 import React from 'react';
+import Review from '../../Review/Review';
 import Benner from '../Benner/Benner';
 import BennerTwo from '../Benner/BennerTwo';
 import BestSeller from '../BestSeller/BestSeller';
@@ -16,6 +17,7 @@ const Home = () => {
             <FecturesProducts></FecturesProducts>
             <BestSeller></BestSeller>
             <BennerTwo></BennerTwo>
+            <Review/>
             <BlogsMap></BlogsMap>
             <Contack></Contack>
 

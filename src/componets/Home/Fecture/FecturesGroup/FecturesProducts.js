@@ -36,9 +36,9 @@ const FecturesProducts = () => {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    initialSlide: 3
                 }
             },
             {
@@ -80,7 +80,7 @@ const FecturesProducts = () => {
                                 key={girlsDres._id}
                                 girlsDres={girlsDres}
                                 setGirlsDressDetails={setGirlsDressDetails}
-                            ></GirlsCard>)
+                            ></GirlsCard>).reverse()
                         }
 
 

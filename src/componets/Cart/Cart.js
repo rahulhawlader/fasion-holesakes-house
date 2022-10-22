@@ -1,8 +1,9 @@
 
+import { signOut } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 // import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import CartRow from './CartRow';
 
@@ -10,7 +11,7 @@ import CartRow from './CartRow';
 const Cart = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth)
-
+    const navigate = useNavigate()
 
     // if(user){
 
@@ -22,12 +23,30 @@ const Cart = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            fetch(`http://localhost:5000/myorder?email=${user.email}`, {
                 method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
 
             })
 
-                .then(res => res.json())
+                .then(res => {
+                    console.log('res', res);
+
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken')
+                        navigate('/login')
+
+
+                    }
+
+
+
+                    return res.json()
+
+                })
                 .then(data => {
                     setOrders(data)
 
@@ -47,7 +66,7 @@ const Cart = () => {
 
         }
 
-    }, [user])
+    }, [navigate, user])
 
 
 

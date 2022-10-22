@@ -14,6 +14,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './componets/Login/RequireAuth';
 import Payment from './componets/Cart/Payment';
 import Review from './componets/Review/Review';
+import Dashboard from './componets/Dashboard/Dashboard';
+import AllUsers from './componets/Dashboard/AllUsers';
+import AllOrder from './componets/Dashboard/AllOrder';
+import AllProduct from './componets/Dashboard/AllProduct';
+import AddProducts from './componets/Dashboard/AddProducts';
+import AddEmployee from './componets/Dashboard/AddEmployee';
+import AllEmployee from './componets/Dashboard/AllEmployee';
+import RequireAdmin from './componets/Login/RequireAdmin';
+import OurBlogs from './componets/Dashboard/OurBlogs ';
+import AllReviews from './componets/Dashboard/AllReviews';
 
 
 
@@ -43,6 +53,64 @@ function App() {
             </RequireAuth>
 
           }></Route>
+          <Route path='/dashboard' element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+
+          }>
+            <Route index element={<OurBlogs />}></Route>
+            
+            <Route path='allCustomerReview' element={<AllReviews />}></Route>
+
+            <Route path='allOrder' element={<RequireAdmin>
+              <AllOrder />
+
+            </RequireAdmin>}></Route>
+           
+            <Route path='allProduct' element={
+           <RequireAdmin>
+             <AllProduct />
+           </RequireAdmin>
+            
+            
+            }> </Route>
+
+
+            <Route path='allEmployee' element={
+              <RequireAdmin>
+                <AllEmployee />
+              </RequireAdmin>
+
+            }></Route>
+
+
+            <Route path='allUsers' element={
+              <RequireAdmin>
+                <AllUsers />
+              </RequireAdmin>
+
+            }></Route>
+
+            <Route path='addProduct' element={
+              <RequireAdmin>
+                <AddProducts />
+              </RequireAdmin>
+
+            }></Route>
+
+
+            <Route path='addEmployee' element={
+              <RequireAdmin>
+                <AddEmployee />
+              </RequireAdmin>
+
+
+            }></Route>
+
+
+
+          </Route>
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/review' element={<Review />}></Route>
           <Route path='/login' element={<Login />}></Route>
